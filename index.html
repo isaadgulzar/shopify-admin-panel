@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/tailwind.css">
+    <title>Document</title>
+</head>
+<body>
+    <div x-data="{sidebar : false}" class="bg-light-blue">
+        <header class="bg-white shadow">
+            <div class="px-2 lg:divide-y lg:divide-gray-200 lg:px-4">
+                <div class="relative h-16 flex justify-between">
+                    <div class="relative z-10 px-2 hidden lg:flex lg:px-0">
+                        <div class="flex-shrink-0 flex items-center space-x-5">
+                            <img class="block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow">
+                            <span class="text-sm font-medium">Sorga Kita</span>
+                        </div>
+                    </div>
+                    <div class="relative z-10 flex items-center lg:hidden">
+                        <button @click="sidebar = !sidebar" type="button" class="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
+                            <span class="sr-only">Open menu</span>
+                                <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                                </svg>
+                                <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                        </button>
+                    </div>
+                    <div class="relative z-0 flex-1 px-2 flex items-center justify-center">
+                        <div class="w-full sm:max-w-xl">
+                            <label for="search" class="sr-only">Search</label>
+                            <div class="relative">
+                            <div class="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
+                                <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <input id="search" name="search" class="block w-full bg-white border border-gray-300 rounded-md py-2 pl-10 pr-3 text-sm placeholder-gray-500 focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Search" type="search">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-shrink-0">
+                        <button type="button" class="bg-white rounded-full flex items-center space-x-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                            <span class="sr-only">Open user menu</span>
+                            <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                            <span class="hidden lg:inline-block text-sm font-medium">Mudz Majid</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="relative h-screen flex gap-x-2 overflow-hidden bg-light-blue lg:pt-17">
+            <!-- Desktop Sidebar for Dashboard -->
+            <div x-show="sidebar" class="flex lg:hidden fixed top-0 left-0 z-40 h-screen w-full bg-black bg-opacity-50"></div>
+            <div :class="{'flex fixed z-50 top-0 left-0 h-full' : sidebar,'hidden': !sidebar}" class="lg:flex flex-shrink-0">
+                <div class="flex flex-col w-70">
+                    <!-- Sidebar component, swap this element with another sidebar if you like -->
+                    <div class="flex-1 flex flex-col min-h-0">
+                        <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto bg-white rounded-r-md">
+                            <div class="flex items-center flex-shrink-0 px-2 border-b pb-3.5">
+                                <div class="w-full mt-1 flex rounded-md shadow-sm">
+                                    <div class="relative flex items-stretch flex-grow focus-within:z-10">
+                                        <input type="text" name="email" id="email" class="block w-full border border-purple rounded-none rounded-l-md pl-3 text-xs font-space-mono" placeholder="SEARCH...">
+                                    </div>
+                                    <button type="button" class="-ml-px relative inline-flex items-center space-x-2 px-3 py-2 bg-grey-06 border border-purple text-sm font-medium rounded-r-md  focus:outline-none">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M17.7552 15.5621L14.2499 12.0574C14.0917 11.8992 13.8772 11.8113 13.6522 11.8113H13.0791C14.0495 10.5704 14.6261 9.00966 14.6261 7.31178C14.6261 3.27273 11.3528 0 7.31303 0C3.27329 0 0 3.27273 0 7.31178C0 11.3508 3.27329 14.6236 7.31303 14.6236C9.01121 14.6236 10.5723 14.0471 11.8134 13.0768V13.6498C11.8134 13.8748 11.9013 14.0892 12.0595 14.2474L15.5648 17.7522C15.8953 18.0826 16.4297 18.0826 16.7567 17.7522L17.7517 16.7573C18.0822 16.4269 18.0822 15.8926 17.7552 15.5621ZM7.31303 11.8113C4.82731 11.8113 2.81271 9.8006 2.81271 7.31178C2.81271 4.82648 4.82379 2.81222 7.31303 2.81222C9.79876 2.81222 11.8134 4.82296 11.8134 7.31178C11.8134 9.79709 9.80228 11.8113 7.31303 11.8113Z" fill="#5F5F5F" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <nav class="sidebar-nav flex-1 flex flex-col bg-white space-y-4 font-roboto pt-3.5">
+                                <a href="#" class="active group flex space-x-3 py-2 mx-2 items-center text-sm font-medium">
+                                    <svg class="fill-current" width="19" height="17" viewBox="0 0 19 17" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="fill-current" d="M10.9844 0H18.1094C18.6013 0 19 0.407735 19 0.910715V6.98215C19 7.48513 18.6013 7.89286 18.1094 7.89286H10.9844C10.4925 7.89286 10.0938 7.48513 10.0938 6.98215V0.910715C10.0938 0.407735 10.4925 0 10.9844 0ZM8.01563 0H0.890625C0.39874 0 0 0.407735 0 0.910715V6.98215C0 7.48513 0.39874 7.89286 0.890625 7.89286H8.01563C8.50751 7.89286 8.90625 7.48513 8.90625 6.98215V0.910715C8.90625 0.407735 8.50751 0 8.01563 0ZM0 10.0179V16.0893C0 16.5923 0.39874 17 0.890625 17H8.01563C8.50751 17 8.90625 16.5923 8.90625 16.0893V10.0179C8.90625 9.51489 8.50751 9.10715 8.01563 9.10715H0.890625C0.39874 9.10715 0 9.51489 0 10.0179ZM10.9844 17H18.1094C18.6013 17 19 16.5923 19 16.0893V10.0179C19 9.51489 18.6013 9.10715 18.1094 9.10715H10.9844C10.4925 9.10715 10.0938 9.51489 10.0938 10.0179V16.0893C10.0938 16.5923 10.4925 17 10.9844 17Z" />
+                                    </svg>
+                                    <span>OVERVIEW</span>
+                                </a>
+                                <a href="#" class="group flex space-x-3 py-2 mx-2 items-center text-sm font-medium">
+                                    <svg class="fill-current" width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="fill-current" d="M13.9265 5.625H8.96V0.689063L13.9265 5.625ZM10.64 6.75V11.3203C10.64 13.6687 9.3625 14.8395 6.6745 14.8395H3.36V2.98125H6.6745C7.0945 2.98125 7.483 3.00938 7.833 3.06914V0.116016C7.4515 0.0386719 7.049 0 6.622 0H0V18H6.622C11.5395 18 14 15.7289 14 11.1832V6.75H10.64Z" />
+                                    </svg>
+                                    <span>MENU 1</span>
+                                </a>
+                                <div x-data="{dropdown1 : false}" @mouseleave="dropdown1 = false" class="nav-dropdown relative flex flex-col space-y-3">
+                                    <a @mouseenter="dropdown1 = true" :class="{'active': dropdown1}" href="#" class="group flex justify-between py-2 px-2 items-center text-sm font-medium">
+                                        <span class="flex space-x-5">
+                                            <svg :class="{'text-orange': dropdown1}" class="fill-current" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M16.2023 0H0.797801C0.0899769 0 -0.267189 0.858831 0.234344 1.36036L6.375 7.50194V14.3437C6.375 14.6037 6.50186 14.8474 6.7149 14.9966L9.37115 16.8553C9.89519 17.2221 10.625 16.8503 10.625 16.2024V7.50194L16.7658 1.36036C17.2663 0.859827 16.9116 0 16.2023 0Z" />
+                                            </svg>
+                                            <span>MENU 2 with submenu</span>
+                                        </span>
+                                        <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2 2L11 11L20 2" stroke="#525252" stroke-width="3" />
+                                        </svg>
+                                    </a>
+                                    <div x-show="dropdown1" class="bg-grey-lighter border-t border-b border-grey-08 py-3" >
+                                        <div class="flex flex-col space-y-3 mx-4">
+                                            <a href="#" class="py-2 mx-4 text-sm text-grey-07">Submenu 1</a>
+                                            <a href="#" class="py-2 mx-4 text-sm text-grey-07">Submenu 2</a>
+                                            <a href="#" class="py-2 mx-4 text-sm text-grey-07">Submenu 3</a>
+                                            <a href="#" class="py-2 mx-4 text-sm text-grey-07">Submenu 4</a>
+                                            <div class="border-t border-grey-dark"></div>
+                                            <a href="#" class="active spacial-submenu flex items-center justify-between py-2 text-sm">
+                                                <span>Special submenu 1</span>
+                                                <span class="flex items-center justify-center counter px-4 font-medium mr-2 rounded-md">
+                                                    4
+                                                </span>
+                                            </a>
+                                            <a href="#" class="spacial-submenu flex items-center justify-between py-2 text-sm">
+                                                <span>Special submenu 2</span>
+                                                <span class="flex items-center justify-center counter px-4 font-medium mr-2 rounded-md">
+                                                    4
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#" class="group flex space-x-3 py-2 mx-2 items-center text-sm font-medium">
+                                    <svg class="fill-current" width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="fill-current" d="M13.9265 5.625H8.96V0.689063L13.9265 5.625ZM10.64 6.75V11.3203C10.64 13.6687 9.3625 14.8395 6.6745 14.8395H3.36V2.98125H6.6745C7.0945 2.98125 7.483 3.00938 7.833 3.06914V0.116016C7.4515 0.0386719 7.049 0 6.622 0H0V18H6.622C11.5395 18 14 15.7289 14 11.1832V6.75H10.64Z" />
+                                    </svg>
+                                    <span>MENU 3</span>
+                                </a>
+                                <a href="#" class="group flex space-x-3 py-2 mx-2 items-center text-sm font-medium">
+                                    <svg class="fill-current" width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="fill-current" d="M13.9265 5.625H8.96V0.689063L13.9265 5.625ZM10.64 6.75V11.3203C10.64 13.6687 9.3625 14.8395 6.6745 14.8395H3.36V2.98125H6.6745C7.0945 2.98125 7.483 3.00938 7.833 3.06914V0.116016C7.4515 0.0386719 7.049 0 6.622 0H0V18H6.622C11.5395 18 14 15.7289 14 11.1832V6.75H10.64Z" />
+                                    </svg>
+                                    <span>MENU 4</span>
+                                </a>
+                                <a href="#" class="group flex space-x-3 py-2 mx-2 items-center text-sm font-medium">
+                                    <svg class="fill-current" width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="fill-current" d="M13.9265 5.625H8.96V0.689063L13.9265 5.625ZM10.64 6.75V11.3203C10.64 13.6687 9.3625 14.8395 6.6745 14.8395H3.36V2.98125H6.6745C7.0945 2.98125 7.483 3.00938 7.833 3.06914V0.116016C7.4515 0.0386719 7.049 0 6.622 0H0V18H6.622C11.5395 18 14 15.7289 14 11.1832V6.75H10.64Z" />
+                                    </svg>
+                                    <span>MENU 5</span>
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Desktop Content Area for Tab Dashboard -->
+            <div class="flex flex-col min-w-0 flex-1 overflow-hidden">
+                <div class="flex-1 relative z-0 flex overflow-hidden bg-white rounded-l-md">
+                    <main class="flex-1 relative focus:outline-none">
+                        <div class="grid md:grid-cols-2 items-center md:justify-between gap-5 px-3 md:px-0 md:pl-11 md:pr-20">
+                            <div class="md:col-span-2 flex items-center justify-between pt-5">
+                                <p class="text-grey-09 font-light uppercase">OVERVIEW - Dashboard</p>
+                                <button class="flex items-center justify-center space-x-2 py-1 px-2 text-sm bg-grey-06 hover:bg-purple shadow-black text-grey-02 hover:text-white rounded border border-purple">
+                                    <svg class="fill-current" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.128 8.69599C6.23531 9.16074 5.72547 9.51395 5.32886 9.26602L3.9763 8.42084L2.28735 11.1236C1.84628 11.8294 2.35608 12.75 3.18789 12.75H4.91405C5.13409 12.75 5.31249 12.9284 5.31249 13.1484V14.4765C5.31249 14.6966 5.13409 14.875 4.91405 14.875H3.19131C0.689984 14.875 -0.836298 12.1175 0.488308 9.99812L2.17576 7.29579L0.82356 6.45084C0.422433 6.20025 0.525861 5.58885 0.985558 5.4827L4.64577 4.63769C4.93169 4.57168 5.2169 4.74995 5.28291 5.03579L6.128 8.69599ZM9.40053 2.62266L10.7715 4.81658L9.41876 5.66183C9.01863 5.91179 9.11993 6.52355 9.58076 6.62997L13.241 7.47499C13.5289 7.54136 13.8126 7.36083 13.8781 7.07688L14.7231 3.41668C14.8293 2.95701 14.325 2.59593 13.924 2.84665L12.5731 3.6908L11.203 1.49668C9.95718 -0.496601 7.04566 -0.501183 5.79699 1.49668L5.20056 2.4518C5.08402 2.6384 5.1408 2.88413 5.3274 3.00074L6.45362 3.70448C6.64022 3.82109 6.88606 3.76435 7.00267 3.57774L7.59903 2.62339C8.02111 1.94801 8.99266 1.97009 9.40053 2.62266ZM16.5115 9.99812L15.5979 8.53503C15.4814 8.34832 15.2355 8.29151 15.0488 8.40816L13.9245 9.1107C13.7379 9.22731 13.6811 9.47311 13.7978 9.65975L14.713 11.1244C15.1531 11.8287 14.6447 12.75 13.812 12.75H10.625V11.1569C10.625 10.685 10.0525 10.4469 9.71812 10.7813L7.06187 13.4369C6.85438 13.6443 6.85438 13.9807 7.06187 14.1882L9.71812 16.8441C10.0502 17.1762 10.625 16.9435 10.625 16.4684V14.875H13.8085C16.3078 14.875 17.8372 12.1192 16.5115 9.99812Z"/>
+                                    </svg>
+                                    <span>Refresh</span>
+                                </button>
+                            </div>
+                            <!-- Box 1  -->
+                            <div class="flex bg-grey-lighter border border-grey-08 h-56 rounded-md">
+                                
+                            </div>
+                            <!-- Box 2  -->
+                            <div class="flex bg-grey-lighter border border-grey-08 h-56 rounded-md">
+                                
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/alpine.js"></script>
+</body>
+</html>
