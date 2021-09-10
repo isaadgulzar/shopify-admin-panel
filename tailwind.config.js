@@ -4,25 +4,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "light-blue": "#EBEBEB",
-        purple: "#904584",
-        thunder: "#2F3030",
-        orange: "#E46000",
-        "orange-light": "#FFC107",
-        "red-bean": "#DC3545",
+        primary: "#008060",
+        secondary: "#EDEEEF",
+        "matte-black": "#202223",
         grey: {
-          lighter: "#FBFBFB",
-          light: "#F8F8F8",
-          dark: "#AAB2B5",
-          "01": "#A7A7A7",
-          "02": "#525252",
-          "03": "#D6D6D6",
-          "04": "#98A4B5",
-          "05": "#5B5B5B",
-          "06": "#EEEEEE",
-          "07": "#6D6D6D",
-          "08": "#E8E8E8",
-          "09": "#7C8083",
+          lightest: "#F1F2F3",
+          lighter: "#777B7F",
+          light: "#E4E5E7",
+          DEFAULT:"#5C5F62",
         },
       },
       fontFamily: {
