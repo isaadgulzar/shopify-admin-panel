@@ -4,54 +4,48 @@
 
 
 @layer components {
-    .nav-links .active {
-      @apply text-purple;
+    .nav-item {
+      @apply border-l-4 border-transparent;
     }
-    .sidebar-nav a {
-      @apply text-grey-02 border-l-6 border-transparent;
+    .nav-item > a {
+      @apply flex items-center space-x-4 rounded py-1.5 pl-5 pr-1 mx-1 text-matte-black text-sm font-semibold;
     }
-    .sidebar-nav a span {
-      @apply text-grey-02;
+    .nav-item > a svg{
+      @apply text-grey;
     }
-    .sidebar-nav a:hover {
-      @apply bg-purple text-white rounded-md;
+    .nav-item.active {
+      @apply border-l-4 border-primary;
     }
-    .sidebar-nav a:hover span {
-      @apply text-white;
+    .nav-item.active > a {
+      @apply bg-secondary text-primary;
     }
-    .sidebar-nav a.active {
-      @apply bg-purple text-white rounded-md;
+    .nav-item.active > a svg{
+      @apply text-primary;
     }
-    .sidebar-nav a.active span {
-      @apply text-white;
+    .nav-item:hover > a {
+      @apply bg-grey-lightest;
     }
-    .sidebar-nav .nav-dropdown:hover > a {
-      @apply bg-transparent text-grey-02 rounded-none;
+
+
+    .dropdown.nav-item {
+      @apply relative border-l-0;
     }
-    .sidebar-nav .nav-dropdown:hover span {
-      @apply text-grey-02;
+    .dropdown.nav-item > a {
+      @apply ml-2;
     }
-    .sidebar-nav .nav-dropdown:hover > a {
-      @apply text-purple border-l-6 border-purple;
+    .dropdown.nav-item.active > a {
+      @apply bg-transparent text-matte-black;
     }
-    .sidebar-nav .nav-dropdown > a.active {
-      @apply text-purple border-l-6 border-purple;
+    .dropdown.nav-item ul a
+    {
+      @apply flex items-center space-x-4 py-2 px-5 mx-1 text-grey-lighter;
+      padding-left: 3.78rem;
     }
-    .sidebar-nav .spacial-submenu:hover span {
-      @apply text-white;
+    .dropdown.nav-item.active ul .nav-item.active a
+    {
+      @apply text-primary;
     }
-    .sidebar-nav .spacial-submenu.active span {
-      @apply text-white;
-    }
-    .sidebar-nav .spacial-submenu .counter {
-      @apply bg-orange-light text-white border border-black;
-    }
-    .sidebar-nav .spacial-submenu:hover .counter {
-      @apply bg-red-bean text-white border border-white;
-    }
-    .sidebar-nav .spacial-submenu.active .counter {
-      @apply bg-red-bean text-white border border-white;
-    }
-  }
+    
+}
   
   
